@@ -5,7 +5,7 @@ Consider a database table, Emails, which has the attributes First Name and Email
 '''
 
 import sys
-
+import re
 
 N = int(raw_input().strip())
 
@@ -14,13 +14,12 @@ for a0 in xrange(N):
     firstName,emailID = raw_input().strip().split(' ')
     firstName,emailID = [str(firstName),str(emailID)]
 
-    if '@gmail.com' in emailID:
+    if re.search('@gmail.com$', emailID) is not None:
         nameList.append(firstName)
     
 nameList.sort()
 for word in nameList:
     print word
-
 
 
 
